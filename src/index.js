@@ -6,6 +6,7 @@ const { testConnection } = require('./config/database');
 const eventsRouter = require('./routes/events');
 const abandonmentsRouter = require('./routes/abandonments');
 const detailsRouter = require('./routes/details');
+const phonesRouter = require('./routes/phones');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
 
 const app  = express();
@@ -27,6 +28,7 @@ app.get('/health', (req, res) => {
 app.use('/api/dailyStats', eventsRouter);
 app.use('/api/abandonments', abandonmentsRouter);
 app.use('/api/details', detailsRouter);
+app.use('/api/phones', phonesRouter);
 
 // ─── Manejo de errores ───────────────────────────────────────────────────────
 app.use(notFound);
